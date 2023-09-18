@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regex_ass</title>
+</head>
+<body>
+
+  <h1>An Assignment on Regular Expression</h1>
+
+  <h4>The following would be tested using the <q><i>.test()</i></q> method</h4>
+
+  <pre>
+    1. car and cat
+    2. pop and prop
+    3. ferret, ferry, and ferrari
+    4. Any word ending in ious
+    5. A whitespace character followed by a period, comma, colon, or semicolon
+    6. A word longer than six letters
+    7. A word without the letter e (or E)
+  </pre>
+
+    <button onclick="regex()"> Click to continue</button>
+
+  <script>
+
+    function regex(){
+
+    let firstInput = prompt("(1). Enter any of the following....(1)cat (2)car");
+    const first = /\b(cat|car)\b/iy;
+    let result = first.test(firstInput);
+    if (result === true){
+      alert(`Your input '${firstInput}' is correct`);
+    }
+    else(alert(`Your input '${firstInput}' is incorrect`));
+
+    let popInput = prompt("(2). Enter any of the following....(1)pop (2)prop");
+    const pop = /\bpr?op/iy;
+    let popResult = pop.test(popInput);
+    if (popResult === true){
+      alert(`Your input '${popInput}' is correct`);
+    }
+    else(alert(`Your input '${popInput}' is incorrect`));
+
+    const ferrInput = prompt("(3). Enter any of the following....(1)ferret (2)ferry (3)ferrari");
+    const ferr = /\b(ferret|ferrari|ferry)\b/iy;
+    let ferrResult = ferr.test(ferrInput);
+    if (ferrResult === true){
+      alert(`Your input '${ferrInput}' is correct'`);
+    }
+    else(alert(`Your input '${ferrInput}' is incorrect`));
+
+
+    let iousInput = prompt("(4). Enter any word ending with..'ious'..");
+    const ious = /ious\b/;
+    let iousResult = ious.test(iousInput);
+    if (iousResult === true){
+      alert(`Your input '${iousInput}' is correct and ends with 'ious'`);
+    }
+    else(alert(`Your input '${iousInput}' does not end with 'ious'`));
+
+    const punctInput = prompt("(5). Enter A whitespace character followed by a period, comma, colon, or semicolon");
+    const punct = /[ .,:;]/;
+    let punctResult = punct.test(punctInput);
+    alert(punctResult);
+
+    let input = prompt("(6). Enter a word longer than six letters")
+    const lenth = /[0-9]/ig;
+    const lenthResult = lenth.test(input);// test if it contains numbers
+      if (lenthResult == false){
+      const lenthOutput = input.length > 6;// test if it's greater than 6
+        if (lenthOutput === true){
+          alert(`Your input was more than 6 letters
+          word: ${input}
+          length: ${input.length}
+          `);
+        }else(
+          alert(`Your input was less than 7 letters
+          word: ${input}
+          length: ${input.length}
+          `))
+    }else(
+        alert(`Your input contains numbers
+        word: ${input}
+        `))
+    
+    let userInput = prompt("(7). Enter a word without an 'E'");
+     const eInput = /[e 0-9]/ig;
+     let output = eInput.test(userInput);
+     let newOutput = output === false;
+      if (newOutput === true ){
+        alert(`${userInput} does not have the letter E`)
+      }
+      else(alert(`${userInput} contains letter E or is a number`));
+
+    };
+  </script>
+</body>
+</html>
